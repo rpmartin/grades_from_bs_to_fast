@@ -46,8 +46,8 @@ grades <- grades%>%
   mutate(final=round(presentation+essay+assignments+participation))%>%
   select(`Student ID`,final)
 
-grades381 <- read_xlsx(path=from_fast_381)         
-grades312 <- read_xlsx(path=from_fast_312)
+grades381 <- read_xlsx(path=from_fast_381,col_types = c("text","text","numeric","text","text"))         
+grades312 <- read_xlsx(path=from_fast_312,col_types = c("text","text","numeric","text","text"))
 
 grades381 <- left_join(grades381,grades)%>%
   select(-Grade)%>%
